@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>JATTFILMS TV - Premium Streaming Experience</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #0066ff;
+                --secondary: #00ccff;
+                --accent: #ff3366;
+                --dark: #0f0f1a;
+                --darker: #0a0a12;
+                --light: #f5f5f7;
+                --gray: #252536;
+                --card-bg: rgba(25, 25, 40, 0.7);
+                --transition: all 0.3s ease
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box
+            }
+
+            body {
+                font-family: Poppins,sans-serif;
+                background: linear-gradient(135deg,var(--darker),var(--dark));
+                color: var(--light);
+                line-height: 1.6;
+                overflow-x: hidden;
+                min-height: 100vh;
+                background-attachment: fixed;
+                position: relative
+            }
+
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at 10% 20%,rgba(0,102,255,.1) 0,transparent 50%),radial-gradient(circle at 90% 80%,rgba(255,51,102,.1) 0,transparent 50%);
+                z-index: -1
+            }
+
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 15px
+            }
+
+            header {
+                padding: 20px 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                background: rgba(10,10,20,.8);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(255,255,255,.05);
+                transition: var(--transition)
+            }
+
+            .scrolled {
+                background: rgba(10,10,20,.95);
+                box-shadow: 0 5px 20px rgba(0,0,0,.2)
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 12px
+            }
+
+            .logo i {
+                color: var(--accent);
+                font-size: 28px;
+                animation: pulse 2s infinite
+            }
+
+            .logo h1 {
+                font-family: Montserrat,sans-serif;
+                font-weight: 800;
+                font-size: 28px;
+                background: linear-gradient(to right,var(--secondary),var(--primary));
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 30px
+            }
+
+            .nav-links a {
+                color: var(--light);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 16px;
+                transition: var(--transition);
+                position: relative
+            }
+
+            .nav-links a:hover {
+                color: var(--accent)
+            }
+
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--accent);
+                transition: var(--transition)
+            }
+
+            .nav-links a:hover::after {
+                width: 100%
+            }
+
+            .hero {
+                padding: 160px 0 100px;
+                position: relative;
+                text-align: center
+            }
+
+            .hero-content {
+                max-width: 800px;
+                margin: 0 auto
+            }
+
+            .hero h2 {
+                font-family: Montserrat,sans-serif;
+                font-size: 3.5rem;
+                font-weight: 800;
+                margin-bottom: 20px;
+                background: linear-gradient(to right,#fff,#b5b5b5);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: fadeInUp 1s ease
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                color: #d0d0d0;
+                margin-bottom: 40px;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                animation: fadeInUp 1.2s ease
+            }
+
+            .cta-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background: linear-gradient(45deg,var(--primary),var(--secondary));
+                color: #fff;
+                padding: 16px 40px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                transition: var(--transition);
+                box-shadow: 0 10px 25px rgba(0,102,255,.4);
+                border: none;
+                cursor: pointer;
+                margin-top: 20px;
+                animation: fadeInUp 1.4s ease;
+                position: relative;
+                overflow: hidden
+            }
+
+            .cta-button::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -60%;
+                width: 20px;
+                height: 200%;
+                background: rgba(255,255,255,.3);
+                transform: rotate(25deg);
+                transition: all .5s
+            }
+
+            .cta-button:hover::after {
+                left: 120%
+            }
+
+            .cta-button:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0,102,255,.5);
+                background: linear-gradient(45deg,var(--secondary),var(--primary))
+            }
+
+            .slideshow-container {
+                max-width: 800px;
+                position: relative;
+                margin: 60px auto 0;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 25px 50px rgba(0,0,0,.5);
+                border: 1px solid rgba(255,255,255,.1);
+                height: 450px;
+                animation: float 6s ease-in-out infinite
+            }
+
+            .mySlides {
+                display: none;
+                height: 100%;
+                position: relative
+            }
+
+            .mySlides img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block
+            }
+
+            .next,.prev {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-weight: 700;
+                font-size: 24px;
+                transition: .6s ease;
+                border-radius: 50%;
+                user-select: none;
+                background: rgba(0,0,0,.4);
+                z-index: 10
+            }
+
+            .prev {
+                left: 20px
+            }
+
+            .next {
+                right: 20px
+            }
+
+            .next:hover,.prev:hover {
+                background: rgba(0,0,0,.8);
+                transform: translateY(-50%) scale(1.1)
+            }
+
+            .dots-container {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 8px;
+                z-index: 10
+            }
+
+            .dot {
+                cursor: pointer;
+                height: 12px;
+                width: 12px;
+                background-color: rgba(255,255,255,.5);
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color .6s ease
+            }
+
+            .active,.dot:hover {
+                background-color: var(--accent);
+                transform: scale(1.2)
+            }
+
+            .features {
+                padding: 100px 0
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px
+            }
+
+            .section-title h2 {
+                font-family: Montserrat,sans-serif;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+                background: linear-gradient(to right,var(--accent),#ff5c8d);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                position: relative;
+                display: inline-block
+            }
+
+            .section-title h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(to right,var(--accent),#ff5c8d);
+                border-radius: 2px
+            }
+
+            .section-title p {
+                color: #b0b0b0;
+                max-width: 600px;
+                margin: 20px auto 0;
+                font-size: 1.1rem
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+                gap: 30px
+            }
+
+            .feature-card {
+                background: var(--card-bg);
+                border-radius: 15px;
+                padding: 35px 30px;
+                text-align: center;
+                transition: var(--transition);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,.05);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity .6s ease,transform .6s ease
+            }
+
+            .feature-card.visible {
+                opacity: 1;
+                transform: translateY(0)
+            }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                background: rgba(40,40,60,.7);
+                box-shadow: 0 15px 35px rgba(0,0,0,.2)
+            }
+
+            .feature-icon {
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(45deg,var(--primary),var(--secondary));
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 25px;
+                font-size: 30px;
+                transition: var(--transition)
+            }
+
+            .feature-card:hover .feature-icon {
+                transform: rotateY(360deg);
+                background: linear-gradient(45deg,var(--accent),#ff5c8d)
+            }
+
+            .feature-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px
+            }
+
+            .feature-card p {
+                color: #d0d0d0;
+                font-size: .95rem
+            }
+
+            .hd-badge {
+                background: linear-gradient(45deg,#ff9a00,#ff5c00);
+                color: #fff;
+                font-size: .7rem;
+                padding: 3px 8px;
+                border-radius: 4px;
+                display: inline-flex;
+                align-items: center;
+                gap: 4px
+            }
+
+            .install {
+                padding: 100px 0;
+                background: rgba(10,10,20,.5);
+                position: relative;
+                overflow: hidden
+            }
+
+            .install::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=10);
+                background-size: cover;
+                background-position: center;
+                opacity: .05;
+                z-index: -1
+            }
+
+            .steps {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 50px
+            }
+
+            .step {
+                flex: 1;
+                min-width: 250px;
+                max-width: 320px;
+                text-align: center;
+                padding: 30px;
+                background: var(--card-bg);
+                border-radius: 15px;
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,.05);
+                transition: var(--transition)
+            }
+
+            .step:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 35px rgba(0,0,0,.2)
+            }
+
+            .step-number {
+                position: absolute;
+                top: -15px;
+                right: 20px;
+                font-size: 5rem;
+                font-weight: 800;
+                color: rgba(255,255,255,.03);
+                z-index: 0
+            }
+
+            .step-icon {
+                font-size: 2.5rem;
+                color: var(--accent);
+                margin-bottom: 20px;
+                position: relative;
+                z-index: 1
+            }
+
+            .step h3 {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+                position: relative;
+                z-index: 1
+            }
+
+            .step p {
+                color: #d0d0d0;
+                position: relative;
+                z-index: 1
+            }
+
+            .download {
+                padding: 100px 0;
+                text-align: center
+            }
+
+            .download-content {
+                max-width: 700px;
+                margin: 0 auto
+            }
+
+            .version-info {
+                background: var(--card-bg);
+                padding: 25px;
+                border-radius: 15px;
+                margin: 40px 0;
+                text-align: left;
+                border: 1px solid rgba(255,255,255,.05);
+                backdrop-filter: blur(10px)
+            }
+
+            .version-info h3 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 15px
+            }
+
+            .version-info ul {
+                padding-left: 20px;
+                margin-top: 15px
+            }
+
+            .version-info li {
+                margin-bottom: 10px;
+                color: #d0d0d0;
+                position: relative;
+                padding-left: 25px
+            }
+
+            .version-info li::before {
+                content: '✓';
+                position: absolute;
+                left: 0;
+                color: var(--accent);
+                font-weight: 700
+            }
+
+            .stats {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 25px;
+                flex-wrap: wrap
+            }
+
+            .stat-item {
+                background: rgba(0,102,255,.15);
+                padding: 15px 25px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px
+            }
+
+            footer {
+                background: rgba(5,5,15,.9);
+                padding: 60px 0 30px;
+                border-top: 1px solid rgba(255,255,255,.05)
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                gap: 40px;
+                margin-bottom: 40px
+            }
+
+            .footer-column h3 {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+                position: relative;
+                padding-bottom: 10px
+            }
+
+            .footer-column h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 2px;
+                background: var(--accent)
+            }
+
+            .footer-links {
+                list-style: none
+            }
+
+            .footer-links li {
+                margin-bottom: 15px
+            }
+
+            .footer-links a {
+                color: #b0b0b0;
+                text-decoration: none;
+                transition: var(--transition);
+                display: flex;
+                align-items: center;
+                gap: 10px
+            }
+
+            .footer-links a:hover {
+                color: var(--accent);
+                transform: translateX(5px)
+            }
+
+            .social-links {
+                display: flex;
+                gap: 15px;
+                margin-top: 20px
+            }
+
+            .social-links a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: var(--gray);
+                border-radius: 50%;
+                color: #fff;
+                transition: var(--transition)
+            }
+
+            .social-links a:hover {
+                background: var(--accent);
+                transform: translateY(-5px)
+            }
+
+            .copyright {
+                text-align: center;
+                padding-top: 30px;
+                border-top: 1px solid rgba(255,255,255,.05);
+                color: #888;
+                font-size: .9rem
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0)
+                }
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0)
+                }
+
+                50% {
+                    transform: translateY(-20px)
+                }
+
+                100% {
+                    transform: translateY(0)
+                }
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1)
+                }
+
+                50% {
+                    transform: scale(1.1)
+                }
+
+                100% {
+                    transform: scale(1)
+                }
+            }
+
+            .fade {
+                animation-name: fade;
+                animation-duration: 1.5s
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: .4
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @media (max-width: 992px) {
+                .hero h2 {
+                    font-size:2.8rem
+                }
+
+                .slideshow-container {
+                    height: 380px
+                }
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display:none
+                }
+
+                .hero {
+                    padding: 140px 0 80px
+                }
+
+                .hero h2 {
+                    font-size: 2.2rem
+                }
+
+                .features-grid {
+                    grid-template-columns: 1fr
+                }
+
+                .steps {
+                    flex-direction: column;
+                    align-items: center
+                }
+
+                .step {
+                    width: 100%;
+                    max-width: 100%
+                }
+
+                .slideshow-container {
+                    height: 320px
+                }
+
+                .next,.prev {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 20px
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero h2 {
+                    font-size:1.8rem
+                }
+
+                .hero p {
+                    font-size: 1rem
+                }
+
+                .cta-button {
+                    padding: 14px 30px;
+                    font-size: 16px
+                }
+
+                .slideshow-container {
+                    height: 250px
+                }
+
+                .next,.prev {
+                    width: 35px;
+                    height: 35px;
+                    font-size: 18px
+                }
+
+                .prev {
+                    left: 10px
+                }
+
+                .next {
+                    right: 10px
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <i class="fas fa-play-circle"></i>
+                        <h1>JATTFILMS TV </h1>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#features">Features</a>
+                        <a href="#install">How to Install</a>
+                        <a href="#download">Download</a>
+                        <a href="#support">Support</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Ultimate Streaming Experience</h2>
+                    <p>Access thousands of HD channels, movies, and sports events worldwide with JATTFILMS TV APK - the premium streaming solution for Android devices.</p>
+                    <a href="#download" class="cta-button">
+                        <i class="fas fa-download"></i>
+                        Download v1.2 Now
+                    </a>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="https://i.ibb.co/nMGLtjbB/main.jpg" alt="SK TECH Streaming Interface">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="https://i.ibb.co/pvZgM3Wq/secnd.jpg" alt="SK TECH Channel Selection">
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <div class="dots-container">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Premium Features</h2>
+                    <p>Experience television like never before with JATTFILMS TV APP</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h3>15,000+ Channels</h3>
+                        <p>Access a vast selection of international channels across all categories including sports, news, entertainment, and more.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>
+                            Ultra HD Streaming
+                            <span class="hd-badge">
+                                <i class="fas fa-hd"></i>
+                                HD
+                            </span>
+                        </h3>
+                        <p>Enjoy crystal-clear picture quality with support for HD and 4K resolution on compatible devices and connections.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>Movie on Demand</h3>
+                        <p>Massive library of movies and TV shows available anytime with our comprehensive collection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Multi-Device Support</h3>
+                        <p>Watch on your phone, tablet, TV, or PC. Seamless experience across all your Android devices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Worldwide Access</h3>
+                        <p>Access content from around the globe with our extensive international channel selection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Daily Updates</h3>
+                        <p>Frequent updates with new features, channels, and performance improvements for the best experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="install" id="install">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Easy Installation</h2>
+                    <p>Get started with JATTFILMS TV APP in just a few simple steps</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Download APK</h3>
+                        <p>Click the download button to get the latest version of JATTFILMS TV APK file.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Enable Installation</h3>
+                        <p>Go to Settings > Security and enable "Unknown Sources" to allow installation.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Install & Enjoy</h3>
+                        <p>Locate the downloaded APK file, install the application, and start streaming!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="download" id="download">
+            <div class="container">
+                <div class="download-content">
+                    <div class="section-title">
+                        <h2>Get JATTFILMS TV Now</h2>
+                        <p>Download the latest version and transform your viewing experience</p>
+                    </div>
+                    <div class="version-info">
+                        <h3>
+                            <i class="fas fa-info-circle"></i>
+                            Version 1.2 (Latest)
+                        </h3>
+                        <ul>
+                            <li>Added 300+ new channels</li>
+                            <li>Custom Playlist Option</li>
+                            <li>Player Optimizations</li>
+                            <li>Fresh UI for Live Events</li>
+                            <li>Minor bug fixes for better performance</li>
+                            <li>Optimized for Android 15 compatibility</li>
+                        </ul>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download"></i>
+                                <span>50K+ Downloads</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-user"></i>
+                                <span>5K+ Active Users</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/Jattfly/fly.github.io/releases/download/V2.0/JattFilms_V2.apk" class="cta-button">
+                        <i class="fas fa-download"></i>
+                        Download APK (v1.2 - 13MB)
+                    </a>
+                    <p style="margin-top:20px;color:#aaa;font-size:.9rem">
+                        <i class="fas fa-shield-alt"></i>
+                        100% Safe & Virus Free
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer id="support">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>About SK TECH</h3>
+                        <p style="color:#b0b0b0;margin-bottom:20px">JATTFILMS  is the premier streaming solution for live television and movies, offering thousands of channels with exceptional quality and reliability.</p>
+                        <div class="social-links">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://t.me/Jattmovie97">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="https://jattfilms.shop">
+                                    <i class="fas fa-chevron-right"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#features">
+                                    <i class="fas fa-chevron-right"></i>
+                                    Features
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#install">
+                                    <i class="fas fa-chevron-right"></i>
+                                    How to Install
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#download">
+                                    <i class="fas fa-chevron-right"></i>
+                                    Download
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-chevron-right"></i>
+                                    FAQ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-chevron-right"></i>
+                                    Troubleshooting
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-chevron-right"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-chevron-right"></i>
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy;2025 JATTFILMS TV APK. All rights reserved. This is an independent service and is not affiliated with any television networks.</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            // Slideshow functionality
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+
+            setInterval( () => {
+                plusSlides(1);
+            }
+            , 5000);
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            );
+
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const featureCards = document.querySelectorAll('.feature-card');
+
+            function animateOnScroll() {
+                featureCards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+
+                    if (cardPosition < screenPosition) {
+                        card.classList.add('visible');
+                    }
+                }
+                );
+            }
+
+            window.addEventListener('scroll', animateOnScroll);
+
+            animateOnScroll();
+
+            const steps = document.querySelectorAll('.step');
+
+            function animateSteps() {
+                steps.forEach( (step, index) => {
+                    const stepPosition = step.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+
+                    if (stepPosition < screenPosition) {
+                        setTimeout( () => {
+                            step.style.opacity = '1';
+                            step.style.transform = 'translateY(0)';
+                        }
+                        , 150 * index);
+                    }
+                }
+                );
+            }
+            steps.forEach(step => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            }
+            );
+
+            window.addEventListener('scroll', animateSteps);
+            animateSteps();
+        </script>
+    </body>
+</html>
